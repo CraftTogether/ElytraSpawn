@@ -1,0 +1,4 @@
+name: ElytraSpawn
+version: '${project.version}'
+main: com.github.x3rition.elytraspawn.ElytraPluginMain
+api-version: 1.17
