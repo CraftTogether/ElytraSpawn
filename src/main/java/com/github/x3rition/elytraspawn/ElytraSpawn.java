@@ -21,24 +21,22 @@ import org.bukkit.plugin.Plugin;
 
 public class ElytraSpawn implements Listener {
     private final int multiplyValue;
-    private final int spawnRadius;
+
     private final List<Player> flying = new ArrayList();
     private final List<Player> boosted = new ArrayList();
 
     public ElytraSpawn(Plugin plugin) {
         this.multiplyValue = plugin.getConfig().getInt("multiplyValue");
-        this.spawnRadius = plugin.getConfig().getInt("spawnRadius");
         Bukkit.getScheduler().runTaskTimer(plugin, () -> {
-            Bukkit.getWorld("world").getPlayers().forEach((player) -> {
+            Bukkit.getWorld("world").getPlayers().forEach(player -> {
                 if (player.getGameMode() == GameMode.SURVIVAL) {
-                    player.setAllowFlight(this.isInSpawnRadius(player));
+                    player.setAllowFlight(Utilities.isInSpawnRadius(player));
                     if (this.flying.contains(player) && !player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType().isAir()) {
                         player.setAllowFlight(false);
                         player.setGliding(false);
                         this.boosted.remove(player);
-                        Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                            this.flying.remove(player);
-                        }, 5L);
+
+                        Bukkit.getScheduler().runTaskLater(plugin, () -> this.flying.remove(player), 5L);
                     }
 
                 }
@@ -49,7 +47,7 @@ public class ElytraSpawn implements Listener {
     @EventHandler
     public void onDoubleJump(PlayerToggleFlightEvent event) {
         if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
-            if (this.isInSpawnRadius(event.getPlayer())) {
+            if (Utilities.isInSpawnRadius(event.getPlayer())) {
                 event.setCancelled(true);
                 event.getPlayer().setGliding(true);
                 event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, (new ComponentBuilder("Drücke ")).append(new KeybindComponent("key.swapOffhand")).append(" um dich zu boosten").create());
@@ -81,13 +79,5 @@ public class ElytraSpawn implements Listener {
             event.setCancelled(true);
         }
 
-    }
-
-    private boolean isInSpawnRadius(Player player) {
-        if (!player.getWorld().getName().equals("world")) {
-            return false;
-        } else {
-            return player.getWorld().getSpawnLocation().distance(player.getLocation()) <= (double)this.spawnRadius;
-        }
     }
 }
