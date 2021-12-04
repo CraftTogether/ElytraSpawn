@@ -16,10 +16,6 @@ public class ElytraPluginMain extends JavaPlugin {
         this.saveDefaultConfig();
         this.getServer().getPluginManager().registerEvents(new ElytraSpawn(this), this);
 
-        PluginManager manager = Bukkit.getPluginManager();
-        manager.registerEvents(new SpawnProtectListener(), this);
-
-
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "ElytraSpawn-Plugin is active");
     }
 
