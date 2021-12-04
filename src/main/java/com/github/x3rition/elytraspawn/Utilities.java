@@ -8,11 +8,7 @@ public class Utilities {
     public static final double multiplyValue = ElytraPluginMain.plugin.getConfig().getDouble("multiplyValue");
 
     public static boolean isInSpawnRadius(Player player) {
-        if (!player.getWorld().getName().equals("world")) {
-            return false;
-        } else {
-            return player.getWorld().getSpawnLocation().distance(player.getLocation()) <= spawnRadius;
-        }
+        return player.getWorld().getSpawnLocation().distance(player.getLocation()) <= spawnRadius;
     }
 
 }
