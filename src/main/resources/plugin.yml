@@ -1,4 +1,4 @@
 name: ElytraSpawn
 version: '${project.version}'
-main: com.github.craftTogether.elytraspawn.ElytraPluginMain
+main: com.github.craftTogether.elytraspawn.Plugin
 api-version: 1.18

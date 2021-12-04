@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ElytraPluginMain extends JavaPlugin {
+public class Plugin extends JavaPlugin {
 
     public static JavaPlugin plugin;
 
