@@ -1,4 +1,4 @@
-package com.github.x3rition.elytraspawn;
+package com.github.craftTogether.elytraspawn;
 
 import java.util.ArrayList;
 import java.util.List;

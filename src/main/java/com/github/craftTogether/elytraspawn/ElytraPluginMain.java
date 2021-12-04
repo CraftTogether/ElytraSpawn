@@ -1,4 +1,4 @@
-package com.github.x3rition.elytraspawn;
+package com.github.craftTogether.elytraspawn;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
