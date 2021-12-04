@@ -20,13 +20,10 @@ import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.plugin.Plugin;
 
 public class ElytraSpawn implements Listener {
-    private final int multiplyValue;
-
     private final List<Player> flying = new ArrayList();
     private final List<Player> boosted = new ArrayList();
 
     public ElytraSpawn(Plugin plugin) {
-        this.multiplyValue = plugin.getConfig().getInt("multiplyValue");
         Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             Bukkit.getWorld("world").getPlayers().forEach(player -> {
                 if (player.getGameMode() == GameMode.SURVIVAL) {
@@ -69,7 +66,7 @@ public class ElytraSpawn implements Listener {
         if (!this.boosted.contains(event.getPlayer())) {
             event.setCancelled(true);
             this.boosted.add(event.getPlayer());
-            event.getPlayer().setVelocity(event.getPlayer().getLocation().getDirection().multiply(this.multiplyValue));
+            event.getPlayer().setVelocity(event.getPlayer().getLocation().getDirection().multiply(Utilities.multiplyValue));
         }
     }
 
