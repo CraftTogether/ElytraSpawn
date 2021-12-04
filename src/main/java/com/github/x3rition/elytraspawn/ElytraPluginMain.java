@@ -20,7 +20,7 @@ public class ElytraPluginMain extends JavaPlugin {
         manager.registerEvents(new SpawnProtectListener(), this);
 
 
-        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "ElytraSpawn-Plugin is active");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Elytra-Spawn-Plugin is active");
     }
 
     @Override
@@ -28,4 +28,3 @@ public class ElytraPluginMain extends JavaPlugin {
         //nothing to do :)))
     }
 }
-

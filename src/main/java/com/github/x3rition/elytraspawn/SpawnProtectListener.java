@@ -16,7 +16,6 @@ public class SpawnProtectListener implements Listener {
                 if (Utilities.isInSpawnRadius(player)) {
                     event.setCancelled(true);
                 }
-
             }
         });
     }

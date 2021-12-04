@@ -61,7 +61,6 @@ public class ElytraSpawn implements Listener {
         if (event.getEntityType() == EntityType.PLAYER && (event.getCause() == DamageCause.FALL || event.getCause() == DamageCause.FLY_INTO_WALL) && this.flying.contains(event.getEntity())) {
             event.setCancelled(true);
         }
-
     }
 
     @EventHandler
