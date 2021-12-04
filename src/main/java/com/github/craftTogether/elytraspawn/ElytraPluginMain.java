@@ -18,10 +18,6 @@ public class ElytraPluginMain extends JavaPlugin {
 
         Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "ElytraSpawn-Plugin is active");
     }
-
-    @Override
-    public void onDisable() {
-        //nothing to do :)))
-    }
+    
 }
 
